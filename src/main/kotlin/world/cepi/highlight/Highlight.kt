@@ -6,13 +6,17 @@ import net.minestom.server.coordinate.Point
 import net.minestom.server.entity.EntityType
 import net.minestom.server.entity.LivingEntity
 import net.minestom.server.instance.Instance
+import net.minestom.server.potion.Potion
+import net.minestom.server.potion.PotionEffect
 import java.time.Duration
 
-class Highlight(val instance: Instance, val position: Point) {
+class Highlight(instance: Instance, position: Point) {
 
     val entity = LivingEntity(EntityType.SHULKER)
 
     init {
+        entity.addEffect(Potion(PotionEffect.INVISIBILITY, 1, Int.MAX_VALUE, 0))
+        entity.isGlowing = true
         entity.setInstance(instance, position)
         highlighters.add(this)
     }
