@@ -17,6 +17,7 @@ class Highlight(instance: Instance, position: Point) {
     init {
         entity.addEffect(Potion(PotionEffect.INVISIBILITY, 1, Int.MAX_VALUE, 0))
         entity.isGlowing = true
+        entity.setNoGravity(true)
         entity.setInstance(instance, position)
         highlighters.add(this)
     }
